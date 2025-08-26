@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+
+# Playwright artifacts
+trace.zip
+network.har
+*.har
+*.png
+error_*.png
+error_dump.html
+
+# IDE/OS
+.vscode/
+.idea/
+.DS_Store
