@@ -1,0 +1,5 @@
+playwright>=1.45
+
+# Optional (development/testing)
+pytest
+pytest-playwright
