@@ -1,23 +1,27 @@
 # Playwright Daily Scraping
 
 A day-by-day practice repository to learn **web scraping with Playwright (Python)**.  
-**Day 1** covers waiting strategies (`wait_for_selector`, `expect_response`), basic error handling, retry/backoff, and daily journaling.
+Starting with simple waits and error handling (Day 1), then expanding to assertions, debugging, pagination, and anti-blocking on Day 2.
 
 ---
 
-## 📁 Structure
+##  Project Structure
+
 ```
 Playwright_daily_scraping/
 ├─ README.md
 ├─ requirements.txt
-└─ day1/
+├─ day1/
+│  ├─ code/
+│  └─ journal_day1.md
+└─ day2/
    ├─ code/
-   └─ journal_day1.md
+   └─ journal_day2.md
 ```
 
 ---
 
-## 🚀 Quickstart
+## Quickstart
 
 ### 1) Install dependencies
 ```bash
@@ -25,50 +29,69 @@ pip install -r requirements.txt
 python -m playwright install
 ```
 
-### 2) Run examples
+### 2) Day 1 examples:
 ```bash
-# Wait for a dynamic DOM element
 python day1/code/day1_basic_wait.py
-
-# Wait for a network response (page/context examples)
 python day1/code/day1_wait_for_response.py
-python day1/code/day1_capture_network_response.py
-
-# Error handling scenarios
 python day1/code/day1_error_handling.py
-
-# Resilient scraper with retry/backoff
 python day1/code/day1_resilient_scraper.py --headful --max-retries 4 --timeout 8000
+```
+
+### 3) Day 2 examples:
+```bash
+python day2/code/day2_assertions_books_simple.py
+python day2/code/day2_screenshot_on_error.py
+python day2/code/day2_pagination.py
+python day2/code/day2_anti_blocking_basics.py
 ```
 
 ---
 
-## 🧩 Day 1 Goals
-- Learn the difference between `wait_for_selector`, `expect_response`, and `wait_for_timeout`
-- Handle errors (`TimeoutError`) gracefully
-- Add simple retry/backoff
-- Document progress in a short daily journal
+## Learning Highlights
+
+###  Day 1
+- Navigate and wait for dynamic content (`wait_for_selector`, `expect_response`)
+- Handle timeouts and errors with retry logic
+- Start daily journals (Day 1 already documented)
+
+###  Day 2
+- Use `expect(...)` for **web-first assertions** (URL, title, counts, visibility)
+- Capture **screenshots + HTML dumps** when things fail → faster debugging
+- **Scrape multiple pages** via pagination (e.g., “Next” link loops)
+- Add **anti-blocking basics**:
+  - Rotate User-Agent
+  - Set headers like `Accept-Language`
+  - Add human-like delays
+  - Mask `navigator.webdriver`
+  - Export data to **CSV**
 
 ---
 
-## 🛠 Tips
-- Always select the correct Python interpreter in VS Code where `playwright` is installed.
-- Use type hints (`Page`, `Response`) to help Pylance understand methods and attributes.
-- Prefer `page.expect_response(predicate)` in Python for race-free network waits.
+## Day 2 Outputs
+- Assertions approach using Pythonic `expect`
+- Screenshots/HTML captured on failure
+- Book title + price scraped across multiple pages → exported to `books_day2.csv`
+- Enhanced debugging and bot‑avoidance techniques
 
 ---
 
-## 📒 Journal
-See `day1/journal_day1.md` for today’s notes.
+## Journals
+- Day 1 journal: [day1/journal_day1.md](day1/journal_day1.md)  
+- Day 2 journal: [day2/journal_day2.md](day2/journal_day2.md)
 
 ---
 
-## 🗺 Roadmap
-- **Day 2**: Web-first assertions (`expect`), error screenshots/HTML dumps, pagination  
-- **Day 3**: Export to CSV/JSON, pytest integration (`pytest-playwright`)  
-- **Day 4**: Tracing/HAR capture, proxy & user-agent tweaks, CI setup
+## Roadmap
+- **Day 3**: JSON export, testing with `pytest-playwright`, pagination improvements  
+- **Day 4**: Playwright tracing, HAR files, configurable proxies/robot fingerprinting  
+- **Day 5+**: AI-assisted data interpretation and integration into business workflows (e.g., feed scraped results into a model or analysis pipeline)
 
 ---
 
-## 📄 License
-MIT (or your choice)
+## License
+MIT License
+
+---
+
+## Topics
+`python` • `playwright` • `web-scraping` • `automation` • `learning`
